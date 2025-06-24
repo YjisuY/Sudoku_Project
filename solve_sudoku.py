@@ -1,3 +1,4 @@
+# 수정
 def is_valid(board, row, col, num):
     for i in range(9):
         if board[row][i] == num or board[i][col] == num:
