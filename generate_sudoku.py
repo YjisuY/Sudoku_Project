@@ -1,15 +1,15 @@
 import random
-from solve_sudoku import solve_sudoku
-from initialize_board import initialize_board
 
 def generate_sudoku():
-    board = initialize_board()
-    # 임의로 숫자 몇 개 넣기
-    for _ in range(10):
-        row, col = random.randint(0, 8), random.randint(0, 8)
-        num = random.randint(1, 9)
-        if board[row][col] == 0:
-            board[row][col] = num
-            if not solve_sudoku([row[:] for row in board]):
-                board[row][col] = 0
-    return board
+    puzzle = []
+
+    numbers = [0] * 9 + list(range(1,10))
+
+    for _ in range(9): # 행 9개
+        row = []
+        for _ in range(9): # 열 9개
+
+            rand_int = random.choice(numbers)
+            row.append(rand_int)
+        puzzle.append(row)
+    return puzzle
